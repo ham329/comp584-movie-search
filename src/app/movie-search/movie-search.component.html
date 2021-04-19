@@ -1,0 +1,20 @@
+<p>
+movie-search works!
+</p>
+
+<input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
+<div>
+<h3>results found({{results.length}})</h3>
+<ul>
+  <li *ngFor="let results of results">
+    {{results.Title}}
+    {{results.Year}}
+    {{results.Type}}
+    
+    <img src="{{results.Poster}}">   
+  </li>
+</ul>
+
+</div>
+
+
