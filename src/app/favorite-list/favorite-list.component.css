@@ -1,0 +1,16 @@
+ul {
+  min-width: 600px;
+  list-style: none;
+}
+li {
+  display: block;
+  width: 300px;
+  padding: 50px;
+  line-height: 2;
+  float: left;
+  margin-left: 2px;
+}
+.wrapper {
+  display: table;
+  margin: 0 auto;
+}
