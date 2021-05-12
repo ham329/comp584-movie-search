@@ -1,0 +1,42 @@
+.body-content {
+  /* background: black; */
+}
+
+button {
+  margin: 0 10px;
+}
+
+.genre-container {
+  margin: 50px 0;
+}
+
+.genre-title {
+  /* color: black; */
+  margin: 0 80px;
+}
+
+.carousel {
+  margin: 0 40px;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+}
+
+.inner-slide {
+  width: 160px;
+  flex-direction: column;
+  display: flex;
+}
+
+.thumbnail {
+  border-radius: 5px;
+  width: auto;
+  height: 225px;
+}
+
+.movie-title {
+  /* color: white; */
+  margin-top: 10px;
+}
