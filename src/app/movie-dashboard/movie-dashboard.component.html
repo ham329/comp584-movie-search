@@ -1,6 +1,6 @@
 <div class="body-content">
   <!-- <app-movie-search></app-movie-search> -->
-  <button type="button" class="btn" (click)="logout()">Logout</button>
+  <!-- <button type="button" class="btn" (click)="logout()">Logout</button> -->
 
   <div class="genre-container">
     <div class="genre-title">
@@ -11,7 +11,7 @@
         <div class="inner-slide">
           <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
           <div class="movie-title">
-            <span >{{movie.title}}</span>
+            <span>{{movie.title}}</span>
           </div>
         </div>
       </div>
@@ -63,4 +63,3 @@
     </ngx-slick>
   </div>
 </div>
-
