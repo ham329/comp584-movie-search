@@ -14,11 +14,28 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
+// <<<<<<< dev-test
 import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, MatButtonModule, MatInputModule, MatIconModule, MatTabsModule, ReactiveFormsModule, BrowserAnimationsModule ],
   declarations: [ AppComponent, HelloComponent, MovieSearchComponent, MovieDashboardComponent, AuthComponent, ],
   bootstrap:    [ AppComponent ]
+// =======
+// import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+// import { LoginComponent } from './login/login.component';
+
+// @NgModule({
+//   imports: [BrowserModule, FormsModule, HttpClientModule],
+//   declarations: [
+//     AppComponent,
+//     HelloComponent,
+//     MovieSearchComponent,
+//     MovieDashboardComponent,
+//     FavoriteListComponent,
+//     LoginComponent
+//   ],
+//   bootstrap: [AppComponent]
+// >>>>>>> master
 })
-export class AppModule { }
+export class AppModule {}
