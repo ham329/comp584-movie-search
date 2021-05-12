@@ -8,6 +8,7 @@ import { HelloComponent } from './hello.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -16,7 +17,8 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     HelloComponent,
     MovieSearchComponent,
     MovieDashboardComponent,
-    FavoriteListComponent
+    FavoriteListComponent,
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
