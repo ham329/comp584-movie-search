@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-dashboard',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
+
+  logout() {
+    this._router.navigate(['']);
+  }
 
   ngOnInit() {
   }

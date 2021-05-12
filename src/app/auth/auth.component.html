@@ -1,0 +1,99 @@
+<div class="body-content">
+  <mat-tab-group mat-stretch-tabs mat-align-tabs="center" class="tab-container">
+    <!-- <mat-tab label="Login">
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Enter address" [formControl]="email" required/>
+          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Password"
+          [type]="hide ? 'password' : 'text'"
+          required
+        />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="login()">Login</button>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Register">
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Email address" [formControl]="email" required/>
+          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Password"
+          [type]="hide ? 'password' : 'text'"
+          required
+        />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Confrim password"
+          [type]="hide ? 'password' : 'text'"
+          required
+        />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="login()">Register</button>
+      </div>
+    </mat-tab> -->
+    <mat-tab label="Login">
+      <form [formGroup]="loginForm" class="form-container">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Email adress" formControlName="email" required/>
+          <mat-error *ngIf="lf.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="lf.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="login()">Login</button>
+      </form>
+    </mat-tab>
+
+    <mat-tab label="Register">
+      <form [formGroup]="registerForm" class="form-container">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Email address"  formControlName="email" required/>
+          <mat-error *ngIf="rf.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="rf.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input
+          matInput
+          placeholder="Confrim password"
+          formControlName="confirmPassword"
+          [type]="hide ? 'password' : 'text'"
+          required
+        />
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="rf.confirmPassword.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="register()">Register</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>
