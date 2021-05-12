@@ -3,42 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: #f3f4f9; */
   font-size: 14px;
 }
 
 .tab-container {
   border-radius: 20px;
-  /* padding: 25px; */
   width: 400px;
   height: 400px;
-  text-align: -webkit-center;
-  /* background: white; */
   display: flex;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  /* justify-content: center; */
-}
-
-/* .mat-tab-label .mat-tab-label-content {
-  background-color: red;
-  color: white;
-} */
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden !important;
-  margin: 10px 30px;
-  height: 300px;
-}
-
-input.example-right-align {
-  -moz-appearance: textfield;
-}
-
-button {
-  margin-top: 10px;
-  border-radius: 10px;
 }

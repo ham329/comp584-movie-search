@@ -16,6 +16,8 @@ import { HelloComponent } from './hello.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import { AuthComponent } from './auth/auth.component';
     HelloComponent,
     MovieSearchComponent,
     MovieDashboardComponent,
-    AuthComponent
+    AuthComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent]
   // =======
