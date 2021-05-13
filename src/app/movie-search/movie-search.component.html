@@ -1,22 +1,21 @@
 <div class="topnav">
-<input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
+  <input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
 </div>
-<div>
-<h3>results found({{results.length}})</h3>
+<div class="movie-results">
+  <h3>results found({{results.length}})</h3>
 
-    <mat-list class="resultlist" role="list">
+  <mat-list class="resultlist" role="list">
 
-  <li *ngFor="let results of results">
- 
-    <h1>{{results.Title}}</h1>
+    <li *ngFor="let results of results">
 
-   <p> Release Year: {{results.Year}}</p>  <br/>
-    <!-- {{results.Type}} <br/>  -->
-    <img src="{{results.Poster}}"> 
+      <h1>{{results.Title}}</h1>
 
-  </li>
-  
-    </mat-list>
+      <p> Release Year: {{results.Year}}</p> <br/>
+      <!-- {{results.Type}} <br/>  -->
+      <img src="{{results.Poster}}">
+
+    </li>
+
+  </mat-list>
 
 </div>
-
