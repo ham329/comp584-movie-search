@@ -1,0 +1,19 @@
+.body-content {
+  margin: 30px;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-results {
+  height: 100vh;
+}
+
+.resultlist {
+  columns: 75px 3;
+}
+h1 {
+  font-style: italic;
+}

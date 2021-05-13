@@ -10,6 +10,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlickModule } from 'ngx-slick';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu'
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -18,6 +21,7 @@ import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.compo
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 @NgModule({
   imports: [
@@ -31,6 +35,9 @@ import { RegisterComponent } from './auth/components/register/register.component
     MatTabsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatListModule,
+    MatToolbarModule,
+    MatMenuModule,
     SlickModule
   ],
   declarations: [
@@ -40,6 +47,7 @@ import { RegisterComponent } from './auth/components/register/register.component
     MovieDashboardComponent,
     AuthComponent,
     LoginComponent,
+    FavoriteListComponent,
     RegisterComponent
   ],
   bootstrap: [AppComponent]
