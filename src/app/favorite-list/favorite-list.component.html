@@ -1,35 +1,46 @@
 <h1>Favorite List</h1>
 <p>Keep track of your favorite shows or movies!</p>
-<div class="wrapper">
-  <ul>
-    <li>
-      Title Year Type <br />
-      Image <br />
-      <input type="submit" value="Remove" id="Remove" />
-    </li>
+<div class="body-content">
+    <mat-list role="list">
 
-    <li>
+    <mat-list-item role="listitem">
       Title Year Type <br />
       Image <br />
       <input type="submit" value="Remove" id="Remove" />
-    </li>
+    </mat-list-item>
 
-    <li>
+   <mat-list-item role="listitem">
       Title Year Type <br />
       Image <br />
       <input type="submit" value="Remove" id="Remove" />
-    </li>
+    </mat-list-item>
 
-    <li>
+   <mat-list-item role="listitem">
       Title Year Type <br />
       Image <br />
       <input type="submit" value="Remove" id="Remove" />
-    </li>
+    </mat-list-item>
 
-    <li>
+   <mat-list-item role="listitem">
+     Title Year Type <br/>
+      Image <br />
+      <input type="submit" value="Remove" id="Remove" />
+    </mat-list-item>
+
+   <mat-list-item role="listitem">
+      Title Year Type <br />
+      Image <br />
+      <mat-action-list>
+          <button mat-list-item (click)="remove()">Remove</button>
+      </mat-action-list>
+    </mat-list-item>
+
+   <mat-list-item role="listitem">
       Title Year Type <br />
       Image <br />
       <input type="submit" value="Remove" id="Remove" />
-    </li>
-  </ul>
+    </mat-list-item>
+
+    </mat-list>
+
 </div>

@@ -1,0 +1,19 @@
+.resultlist {
+ columns: 75px 3;
+ background-color:black;
+}
+h1{
+  font-style: italic;
+}
+.topnav {
+  overflow: hidden;
+  background-color:white;
+}
+.topnav input[type=text] {
+  width: 100%;
+  padding: 6px;
+  border: solid;
+  border-width: 8px;
+  font-size: 20px;
+  background-color: rgb(202, 202, 202);
+}
