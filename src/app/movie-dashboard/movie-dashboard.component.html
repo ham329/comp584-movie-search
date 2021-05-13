@@ -1,20 +1,17 @@
 <mat-toolbar class="toolbar">
   <div>
-  <span>ChillFlix </span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
+    <span>ChillFlix </span>
   </div>
   <span class="flexExpand"></span>
 
   <div>
-    <button mat-button class="menu" [matMenuTriggerFor]="menu">Menu 
+    <button mat-button class="menu" [matMenuTriggerFor]="menu">
       <mat-icon>person</mat-icon>
     </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
-      </mat-menu>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
   </div>
 </mat-toolbar>
 
@@ -24,73 +21,77 @@
   <mat-tab-group mat-stretch-tabs mat-align-tabs="center" class="tab-container">
     <mat-tab label="Home">
 
-  <div class="genre-container">
-    <div class="genre-title">
-      <h3>Action</h3>
-    </div>
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-      <div ngxSlickItem *ngFor="let movie of actionList" class="slide">
-        <div class="inner-slide">
-          <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-          <div class="movie-title">
-            <span>{{movie.title}}</span>
-        
-          </div>
+      <div class="genre-container">
+        <div class="genre-title">
+          <h3>Action</h3>
         </div>
-      </div>
-    </ngx-slick>
-  </div>
-  <div class="genre-container">
-    <div class="genre-title">
-      <h3>Adventure</h3>
-    </div>
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-      <div ngxSlickItem *ngFor="let movie of adventureList" class="slide">
-        <div class="inner-slide">
-          <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-          <div class="movie-title">
-            <span >{{movie.title}}</span>
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
+          (afterChange)="afterChange($event)">
+          <div ngxSlickItem *ngFor="let movie of actionList" class="slide">
+            <div class="inner-slide">
+              <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <div class="movie-title">
+                <span>{{movie.title}}</span>
+
+              </div>
+            </div>
           </div>
-        </div>
+        </ngx-slick>
       </div>
-    </ngx-slick>
-  </div>
-  <div class="genre-container">
-    <div class="genre-title">
-      <h3>Comedy</h3>
-    </div>
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-      <div ngxSlickItem *ngFor="let movie of comedyList" class="slide">
-        <div class="inner-slide">
-          <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-          <div class="movie-title">
-            <span >{{movie.title}}</span>
+      <div class="genre-container">
+        <div class="genre-title">
+          <h3>Adventure</h3>
+        </div>
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
+          (afterChange)="afterChange($event)">
+          <div ngxSlickItem *ngFor="let movie of adventureList" class="slide">
+            <div class="inner-slide">
+              <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <div class="movie-title">
+                <span >{{movie.title}}</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </ngx-slick>
       </div>
-    </ngx-slick>
-  </div>
-  <div class="genre-container">
-    <div class="genre-title">
-      <h3>Horror</h3>
-    </div>
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-      <div ngxSlickItem *ngFor="let movie of horrorList" class="slide">
-        <div class="inner-slide">
-          <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-          <div class="movie-title">
-            <span >{{movie.title}}</span>
+      <div class="genre-container">
+        <div class="genre-title">
+          <h3>Comedy</h3>
+        </div>
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
+          (afterChange)="afterChange($event)">
+          <div ngxSlickItem *ngFor="let movie of comedyList" class="slide">
+            <div class="inner-slide">
+              <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <div class="movie-title">
+                <span >{{movie.title}}</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </ngx-slick>
       </div>
-    </ngx-slick>
-  </div>
+      <div class="genre-container">
+        <div class="genre-title">
+          <h3>Horror</h3>
+        </div>
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
+          (afterChange)="afterChange($event)">
+          <div ngxSlickItem *ngFor="let movie of horrorList" class="slide">
+            <div class="inner-slide">
+              <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <div class="movie-title">
+                <span >{{movie.title}}</span>
+              </div>
+            </div>
+          </div>
+        </ngx-slick>
+      </div>
     </mat-tab>
-  <mat-tab label="Search">
-    <app-movie-search></app-movie-search>
-  </mat-tab>
-  <mat-tab label="Favorites">
-    <app-favorite-list></app-favorite-list>
-  </mat-tab>
+    <mat-tab label="Search">
+      <app-movie-search></app-movie-search>
+    </mat-tab>
+    <mat-tab label="Favorites">
+      <app-favorite-list></app-favorite-list>
+    </mat-tab>
   </mat-tab-group>
 </div>
