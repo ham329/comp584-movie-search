@@ -33,6 +33,7 @@ export class MovieDashboardComponent implements OnInit {
   ngOnInit() {
     this.getGenre(28).subscribe((data: any) => {
       this.actionList = data.results.filter(x => x.poster_path != null);
+      console.log(this.actionList);
     });
     this.getGenre(12).subscribe((data: any) => {
       this.adventureList = data.results.filter(x => x.poster_path != null);
