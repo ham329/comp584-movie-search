@@ -1,0 +1,17 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden !important;
+  margin: 10px 30px;
+  height: 300px;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+button {
+  margin-top: 10px;
+  border-radius: 10px;
+}
