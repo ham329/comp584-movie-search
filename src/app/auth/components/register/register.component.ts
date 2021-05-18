@@ -46,5 +46,6 @@ export class RegisterComponent implements OnInit {
 
   async register() {
     this.firebaseService.register(this.rf.email.value, this.rf.password.value);
+    this.registerForm.reset();
   }
 }

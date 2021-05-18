@@ -27,7 +27,6 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
-import { ModalComponent } from './auth/components/login/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -59,7 +58,6 @@ import { ModalComponent } from './auth/components/login/modal/modal.component';
     LoginDialog,
     FavoriteListComponent,
     RegisterComponent,
-    ModalComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],
