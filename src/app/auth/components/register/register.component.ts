@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
   }
 
   async register() {
-    this.firebaseService.register(this.rf.email, this.rf.password);
-    // this._router.navigate(['dashboard']);
+    this.firebaseService.register(this.rf.email.value, this.rf.password.value);
   }
 }

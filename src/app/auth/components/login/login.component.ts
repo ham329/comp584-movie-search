@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private _router: Router, private firebaseService: FirebaseService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private _router: Router,
+    private firebaseService: FirebaseService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -43,7 +47,6 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    this.firebaseService.login(this.lf.email, this.lf.password);
-    // this._router.navigate(['dashboard']);
+    this.firebaseService.login(this.lf.email.value, this.lf.password.value);
   }
 }

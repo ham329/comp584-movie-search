@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-movie-dashboard',
@@ -14,35 +15,39 @@ export class MovieDashboardComponent implements OnInit {
   adventureList: any = [];
   comedyList: any = [];
   horrorList: any = [];
+  slideConfig = { slidesToShow: 6, slidesToScroll: 6, dots: true };
 
-  constructor(private http: HttpClient, private _router: Router) {}
-
-  logout() {
-    this._router.navigate(['']);
-  }
+  constructor(
+    private http: HttpClient,
+    private _router: Router,
+    private firebaseService: FirebaseService
+  ) {}
 
   getGenre(genreID) {
     return this.http.get(`${this.url}${genreID}`);
   }
 
-  slideConfig = { slidesToShow: 6, slidesToScroll: 6, dots: true };
   afterChange(e) {
     console.log('afterChange');
   }
 
+  logout() {
+    this.firebaseService.logout();
+  }
+
   ngOnInit() {
-    this.getGenre(28).subscribe((data: any) => {
-      this.actionList = data.results.filter(x => x.poster_path != null);
-    });
-    this.getGenre(12).subscribe((data: any) => {
-      this.adventureList = data.results.filter(x => x.poster_path != null);
-    });
-    this.getGenre(35).subscribe((data: any) => {
-      this.comedyList = data.results.filter(x => x.poster_path != null);
-    });
-    this.getGenre(27).subscribe((data: any) => {
-      this.horrorList = data.results.filter(x => x.poster_path != null);
-    });
+    // this.getGenre(28).subscribe((data: any) => {
+    //   this.actionList = data.results.filter(x => x.poster_path != null);
+    // });
+    // this.getGenre(12).subscribe((data: any) => {
+    //   this.adventureList = data.results.filter(x => x.poster_path != null);
+    // });
+    // this.getGenre(35).subscribe((data: any) => {
+    //   this.comedyList = data.results.filter(x => x.poster_path != null);
+    // });
+    // this.getGenre(27).subscribe((data: any) => {
+    //   this.horrorList = data.results.filter(x => x.poster_path != null);
+    // });
   }
 }
 // Movie genres and ids from themoviedb api

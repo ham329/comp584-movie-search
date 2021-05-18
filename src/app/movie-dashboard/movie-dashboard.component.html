@@ -1,23 +1,18 @@
 <mat-toolbar class="toolbar">
   <div>
-    <span>ChillFlix </span>
+    <span>ChillFlix</span>
   </div>
   <span class="flexExpand"></span>
 
-  <div>
-    <button mat-button class="menu" [matMenuTriggerFor]="menu">
+  <button mat-button class="menu" [matMenuTriggerFor]="menu">
       <mat-icon>person</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Settings</button>
-      <button mat-menu-item (click)="logout()">Logout</button>
-    </mat-menu>
-  </div>
+  <mat-menu #menu="matMenu">
+    <span mat-menu-item (click)="logout()">Logout</span>
+  </mat-menu>
 </mat-toolbar>
 
 <div class="body-content">
-  <!-- <app-movie-search></app-movie-search> -->
-  <!-- <button type="button" class="btn" (click)="logout()">Logout</button> -->
   <mat-tab-group mat-stretch-tabs mat-align-tabs="center" class="tab-container">
     <mat-tab label="Home">
 
