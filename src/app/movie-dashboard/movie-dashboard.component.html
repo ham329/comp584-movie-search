@@ -23,7 +23,7 @@
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of actionList" class="slide">
-            <div (click)="firebaseService.deleteFavorite(movie)" class="inner-slide">
+            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
               <div class="movie-title">
                 <span>{{movie.title}}</span>

@@ -32,7 +32,6 @@ export class MovieDashboardComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private _router: Router,
     private firebaseService: FirebaseService
   ) {}
 
@@ -57,10 +56,16 @@ export class MovieDashboardComponent implements OnInit {
     this.firebaseService.logout();
   }
 
+  getFavorites() {
+    this.firebaseService.getFavorites();
+  }
+
   ngOnInit() {
-    // this.getGenre(28).subscribe((data: any) => {
-    //   this.actionList = this.filterList(data.results);
-    // });
+    this.getFavorites();
+    console.log(this.firebaseService.favorites)
+    this.getGenre(28).subscribe((data: any) => {
+      this.actionList = this.filterList(data.results);
+    });
     // this.getGenre(10749).subscribe((data: any) => {
     //   this.romanceList = this.filterList(data.results);
     // });

@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -7,7 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 @Injectable()
 export class FirebaseService {
   uid: string = '';
-  favorites = [];
+  favorites: any = [];
+
   constructor(
     private firebaseAuth: AngularFireAuth,
     private db: AngularFirestore,
@@ -53,20 +54,46 @@ export class FirebaseService {
     console.log('Signed out');
   }
 
-  addFavorite(movie) {
-    this.favorites.push(movie);
+  getFavorites() {
+    // console.log(this.favorites);
     this.db
       .collection('Users')
       .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
-      .set({ favorites: this.favorites });
+      .get()
+      .subscribe(res => {this.favorites =  res.data()});
+      // console.log(res.data());});
+      // console.log(temp)
+    // this.db
+    //   .collection('Users')
+    //   .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
+    //   .get()
+    //   .subscribe(res => this.favorites = res.data());
+    // console.log(this.favorites);
   }
 
-  deleteFavorite() {
-    let temp = this.db
+  addFavorite(movie: { title: string; overview: string; poster_path: string }) {
+    if (this.favorites.length == undefined) this.favorites = [movie];
+    else {
+      this.favorites.push(movie)
+    }
+      this.db
+        .collection('Users')
+        .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
+        .set({ favorites: this.favorites });
+    console.log(this.favorites);
+  }
+
+  deleteFavorite(movie: {
+    title: string;
+    overview: string;
+    poster_path: string;
+  }) {
+    let filteredFavorites = this.favorites.filter(x => x != movie);
+    this.db
       .collection('Users')
       .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
-      .get()
-      .subscribe(x => console.log(x.data()));
+      .set({ favorites: filteredFavorites });
+    console.log(this.favorites);
   }
 }
 
