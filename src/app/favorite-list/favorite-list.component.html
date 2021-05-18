@@ -2,22 +2,41 @@
 <p>Keep track of your favorite shows or movies!</p>
 
 <div class="favorite-results">
-<mat-grid-list cols="6" rowHeight="100px">
-  <mat-grid-tile
+<!-- old grid list doesnt delete right 
+  <mat-grid-list cols="6" rowHeight="100px">
+   <mat-grid-tile id="obj"
       *ngFor="let tile of tiles"
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
       [style.background]="tile.color">
     {{tile.text}} 
-    <!-- this will be the remove button for the favorites -->
-    <div class="delete-button-container">
-        <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+     <div class="delete-button-container">
+        <button mat-fab color="primary" (click)="delete(item)" aria-label="Example icon button with a delete icon">
           <mat-icon>delete</mat-icon>
         </button>
+      </div> 
+        </mat-grid-tile>
+        </mat-grid-list> -->
+
+        <!-- NEW WAY IN APPLYING GRIDLIST!! -->
+<mat-grid-list [cols]="breakpoint"  rowHeight="100px"  (window:resize)="onResize($event)">
+   <mat-grid-tile id="obj"
+      *ngFor="let item of items" 
+      [colspan]="item.cols"
+      [rowspan]="item.rows"          
+      [style.background]= 'item.color'>
+      <div >
+            <h2>{{item.name}}</h2>
+            <div>some sort of text in between</div>
+            <div class="delete-button-container">
+               <button mat-fab color="primary" (click)="delete(item)" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+               </button>
+            </div>
       </div>
-  </mat-grid-tile>
-        
+  </mat-grid-tile>   
 </mat-grid-list>
+        
 </div>
 
 <!-- <div class="body-content">
