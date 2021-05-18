@@ -23,10 +23,10 @@ import { HelloComponent } from './hello.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { AuthComponent } from './auth/auth.component';
-import { LoginComponent, LoginDialog } from './auth/components/login/login.component';
+import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-import { FirebaseService } from './services/firebase.service';
+import { FirebaseService, LoginDialog } from './services/firebase.service';
 import { ModalComponent } from './auth/components/login/modal/modal.component';
 
 @NgModule({
@@ -59,7 +59,7 @@ import { ModalComponent } from './auth/components/login/modal/modal.component';
     LoginDialog,
     FavoriteListComponent,
     RegisterComponent,
-    ModalComponent,
+    ModalComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],

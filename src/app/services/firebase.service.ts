@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 // import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginDialog } from '../auth/components/login/login.component';
 
 @Injectable()
 export class FirebaseService {
@@ -32,7 +31,10 @@ export class FirebaseService {
         this._router.navigate(['dashboard']);
         this.uid = res.user.uid;
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        this.openDialog();
+        console.log(err)
+      });
   }
 
   logout() {
@@ -42,3 +44,9 @@ export class FirebaseService {
     console.log('Signed out');
   }
 }
+
+@Component({
+  selector: 'modal',
+  templateUrl: './modal.html'
+})
+export class LoginDialog {}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// import { MatDialog } from '@angular/material/dialog';
 import { FirebaseService } from '../../../services/firebase.service';
 
 @Component({
@@ -14,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private firebaseService: FirebaseService,
-    // public dialog: MatDialog
+    private firebaseService: FirebaseService
   ) {}
 
   ngOnInit() {
@@ -24,10 +22,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-
-  // openDialog() {
-  //   this.dialog.open(LoginDialog);
-  // }
 
   get lf() {
     return this.loginForm.controls;
@@ -51,11 +45,6 @@ export class LoginComponent implements OnInit {
 
   async login() {
     this.firebaseService.login(this.lf.email.value, this.lf.password.value);
+    this.loginForm.reset();
   }
 }
-
-@Component({
-  selector: 'modal',
-  templateUrl: './modal.html'
-})
-export class LoginDialog {}
