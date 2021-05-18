@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirebaseService } from '../../../services/firebase.service';
 
@@ -12,7 +11,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private _router: Router, private firebaseService: FirebaseService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private firebaseService: FirebaseService
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({

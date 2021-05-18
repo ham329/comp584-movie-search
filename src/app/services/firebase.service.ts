@@ -2,11 +2,17 @@ import { Injectable } from '@angular/core';
 // import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialog } from '../auth/components/login/login.component';
 
 @Injectable()
 export class FirebaseService {
   uid: string = '';
-  constructor(private firebaseAuth: AngularFireAuth, private _router: Router) {}
+  constructor(private firebaseAuth: AngularFireAuth, private _router: Router, public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(LoginDialog);
+  }
 
   async register(email: string, password: string) {
     this.firebaseAuth

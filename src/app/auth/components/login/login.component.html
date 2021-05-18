@@ -1,6 +1,6 @@
 <form [formGroup]="loginForm" class="form-container">
   <mat-form-field appearance="outline">
-    <input matInput placeholder="Email adress" formControlName="email" required/>
+    <input matInput placeholder="Email address" formControlName="email" required/>
     <mat-error *ngIf="lf.email.invalid">{{getEmailErrorMessage()}}</mat-error>
   </mat-form-field>
 
@@ -10,4 +10,5 @@
     <mat-error *ngIf="lf.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
   </mat-form-field>
   <button mat-flat-button color="primary" (click)="login()">Login</button>
+  <button mat-flat-button color="primary" (click)="openDialog()">Dialog</button>
 </form>

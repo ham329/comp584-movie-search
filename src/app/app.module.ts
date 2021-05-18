@@ -13,6 +13,7 @@ import { SlickModule } from 'ngx-slick';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -22,10 +23,11 @@ import { HelloComponent } from './hello.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/components/login/login.component';
+import { LoginComponent, LoginDialog } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FirebaseService } from './services/firebase.service';
+import { ModalComponent } from './auth/components/login/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -43,6 +45,7 @@ import { FirebaseService } from './services/firebase.service';
     MatToolbarModule,
     MatMenuModule,
     SlickModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
@@ -53,10 +56,13 @@ import { FirebaseService } from './services/firebase.service';
     MovieDashboardComponent,
     AuthComponent,
     LoginComponent,
+    LoginDialog,
     FavoriteListComponent,
-    RegisterComponent
+    RegisterComponent,
+    ModalComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [FirebaseService]
+  providers: [FirebaseService],
+  entryComponents: [LoginComponent, LoginDialog]
 })
 export class AppModule {}
