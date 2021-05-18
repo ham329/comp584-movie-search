@@ -53,3 +53,8 @@ button {
 .flexExpand {
     flex: 1 1 auto;
 }
+h1{
+  font-size: 32px;
+  font-family: Apple Chancery, cursive;
+  font-variant: small-caps;
+}
