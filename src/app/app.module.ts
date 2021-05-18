@@ -10,9 +10,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlickModule } from 'ngx-slick';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu'
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { environment } from './environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -22,6 +25,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   imports: [
@@ -38,7 +42,9 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     MatListModule,
     MatToolbarModule,
     MatMenuModule,
-    SlickModule
+    SlickModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   declarations: [
     AppComponent,
@@ -50,22 +56,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     FavoriteListComponent,
     RegisterComponent
   ],
-  bootstrap: [AppComponent]
-  // =======
-  // import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-  // import { LoginComponent } from './login/login.component';
-
-  // @NgModule({
-  //   imports: [BrowserModule, FormsModule, HttpClientModule],
-  //   declarations: [
-  //     AppComponent,
-  //     HelloComponent,
-  //     MovieSearchComponent,
-  //     MovieDashboardComponent,
-  //     FavoriteListComponent,
-  //     LoginComponent
-  //   ],
-  //   bootstrap: [AppComponent]
-  // >>>>>>> master
+  bootstrap: [AppComponent],
+  providers: [FirebaseService]
 })
 export class AppModule {}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../../../services/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private _router: Router) {}
+  constructor(private formBuilder: FormBuilder, private _router: Router, private firebaseService: FirebaseService) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
       : '';
   }
 
-  login() {
-    this._router.navigate(['dashboard']);
+  async login() {
+    this.firebaseService.login(this.lf.email, this.lf.password);
+    // this._router.navigate(['dashboard']);
   }
 }
