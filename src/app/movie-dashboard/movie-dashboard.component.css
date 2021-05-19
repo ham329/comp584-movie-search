@@ -85,5 +85,5 @@ h1{
   border-radius: 5px;
 }
 .container .btn:hover {
-  background-color: red;
+  background-color: rgb(40, 40, 116);
 }
