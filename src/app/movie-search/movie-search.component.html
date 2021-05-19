@@ -1,20 +1,21 @@
 
-<span><mat-form-field class="search-field" appearance="outline">
+<div class="body-content">
+<mat-form-field class="search-field" appearance="outline">
   <mat-label>Search Title</mat-label>
   <input matInput type="text" [(ngModel)]="value" (keyup)="getMovies($event.target.value)">
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
     <mat-icon>close</mat-icon>
   </button>
-</mat-form-field></span>
+</mat-form-field>
 
 
-
-<div class="body-content">
+<div class="genre-title">
+  <h4>Searching for " {{value}} "</h4>
+</div>
+<div>
  
       <div class="genre-container">
-        <div class="genre-title">
-          <h4>Searching for " {{value}} "</h4>
-        </div>
+        
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let results of results" class="slide">
@@ -29,4 +30,6 @@
         </ngx-slick>
       </div>
       
+</div>
+
 </div>
