@@ -21,7 +21,7 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-  <button mat-flat-button color="primary" (click)="loadMore()">Load More</button>
+  <button *ngIf="results.length != 0" class="loadMore" mat-flat-button color="primary" (click)="loadMore()">Load More</button>
   <!-- <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
     <mat-grid-tile *ngFor="let result of results">
       <div class="inner-slide">

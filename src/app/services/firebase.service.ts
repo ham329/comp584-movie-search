@@ -61,7 +61,7 @@ export class FirebaseService {
       .get()
       .subscribe(res => {
         this.favorites = res.data().favorites;
-      console.log(this.favorites)
+        console.log(this.favorites);
       });
   }
 
@@ -82,6 +82,10 @@ export class FirebaseService {
     overview: string;
     poster_path: string;
   }) {
+    var index = this.favorites.findIndex(item => {
+      return item === movie;
+    });
+    const eventToRemove = this.favorites.splice(index, 1);
     let filteredFavorites = this.favorites.filter(x => x != movie);
     this.db
       .collection('Users')

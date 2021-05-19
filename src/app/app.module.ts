@@ -63,7 +63,6 @@ import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-c
     LoginDialog,
     FavoriteListComponent,
     RegisterComponent,
-    MovieCarouselComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],
