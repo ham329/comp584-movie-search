@@ -13,6 +13,7 @@ import { SlickModule } from 'ngx-slick';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -44,6 +45,7 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     MatToolbarModule,
     MatMenuModule,
     SlickModule,
+    MatGridListModule,
     MatDialogModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
@@ -57,7 +59,7 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     LoginComponent,
     LoginDialog,
     FavoriteListComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],

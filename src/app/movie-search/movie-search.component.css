@@ -1,5 +1,6 @@
 .body-content {
   margin: 30px;
+  /* height: 80vh; */
 }
 
 .search-field {
@@ -7,6 +8,15 @@
   flex-direction: column;
 }
 
-.movie-results {
-  height: 100vh;
+.inner-slide {
+  width: 160px;
+  flex-direction: column;
+  display: flex;
 }
+
+.thumbnail {
+  border-radius: 5px;
+  width: auto;
+  height: 225px;
+}
+

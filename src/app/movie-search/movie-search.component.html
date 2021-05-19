@@ -1,21 +1,48 @@
 <div class="body-content">
   <mat-form-field class="search-field" appearance="outline">
     <mat-label>Search Title</mat-label>
-    <input matInput type="text" [(ngModel)]="value" (keyup)="getMovies($event.target.value)">
+    <input matInput type="text" [(ngModel)]="value" (keyup.enter)="getMovies($event.target.value)">
     <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 
-  <div class="movie-results">
-    <!-- <h3>results found({{results.length}})</h3> -->
-    <mat-list class="resultlist" role="list">
+  <!-- <div class="movie-results"> -->
+  <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
+    <mat-grid-tile *ngFor="let result of results">
+      <div class="inner-slide">
+        <img
+        class="thumbnail"
+        src="{{'https://image.tmdb.org/t/p/original' + result.poster_path}}"
+      />
+        <div class="movie-title">
+          <span>{{result.title}}</span>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <button mat-flat-button color="primary" (click)="loadMore()">Load More</button>
+  <!-- <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
+    <mat-grid-tile *ngFor="let result of results">
+      <div class="inner-slide">
+        <img
+        class="thumbnail"
+        src="{{result.Poster}}"
+      />
+        <div class="movie-title">
+          <span>{{result.Title}}</span>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+   -->
+  <!-- <h3>results found({{results.length}})</h3> -->
+  <!-- <mat-list class="resultlist" role="list">
       <li *ngFor="let results of results">
         <h1>{{results.Title}}</h1>
         <p> Release Year: {{results.Year}}</p> <br/>
-        <!-- {{results.Type}} <br/>  -->
         <img src="{{results.Poster}}">
       </li>
-    </mat-list>
-  </div>
+    </mat-list> -->
+  <!-- </div> -->
 </div>
