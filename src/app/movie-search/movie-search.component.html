@@ -1,21 +1,31 @@
-<div class="topnav">
-  <input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
-</div>
-<div class="movie-results">
-  <h3>results found({{results.length}})</h3>
 
-  <mat-list class="resultlist" role="list">
+<ng-container>
+  <mat-form-field appearance="outline" (keyup)="getMovies($event.target.value)">
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Search for a Movie" width=parent>
+  </mat-form-field>
+</ng-container>
 
-    <li *ngFor="let results of results">
 
-      <h1>{{results.Title}}</h1>
 
-      <p> Release Year: {{results.Year}}</p> <br/>
-      <!-- {{results.Type}} <br/>  -->
-      <img src="{{results.Poster}}">
 
-    </li>
+<ng-container fxLayout="row">
+    <div fxFlex="50">
+        <div *ngFor="let results of results| slice:10:half">
+            <p>{{results.Title}}</p>
+             <p> Release Year: {{results.Year}}</p>
+             <img src="{{results.Poster}}">
+        </div>
+    </div>
+</ng-container>
+<h1>----</h1>
+<ng-container fxlayout="column">
+    <div fxFlex="50">
+        <div *ngFor="let results of results | slice:5:half">
+             <p>{{results.Title}}</p>
+             <p> Release Year: {{results.Year}}</p>
+             <img src="{{results.Poster}}">
 
-  </mat-list>
-
-</div>
+        </div>
+    </div>
+</ng-container>
