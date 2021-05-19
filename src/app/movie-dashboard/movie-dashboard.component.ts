@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -61,12 +60,7 @@ export class MovieDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getFavorites()
-    // this.firebaseService.getFavorites()
-    // .subscribe(res => {
-    //     this.firebaseService.favorites = res.map(x => {return x.payload.doc.data()})
-    // console.log(x.payload.doc.data())
-    // });
+    this.getFavorites()
     this.getGenre(28).subscribe((data: any) => {
       this.actionList = this.filterList(data.results);
     });

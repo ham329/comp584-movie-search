@@ -61,6 +61,7 @@ export class FirebaseService {
       .get()
       .subscribe(res => {
         this.favorites = res.data().favorites;
+      console.log(this.favorites)
       });
   }
 

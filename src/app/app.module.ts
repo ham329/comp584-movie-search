@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -28,6 +29,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
+import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-carousel.component';
 
 @NgModule({
   imports: [
@@ -44,6 +46,7 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     MatListModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTooltipModule,
     SlickModule,
     MatGridListModule,
     MatDialogModule,
@@ -59,7 +62,8 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     LoginComponent,
     LoginDialog,
     FavoriteListComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieCarouselComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],
