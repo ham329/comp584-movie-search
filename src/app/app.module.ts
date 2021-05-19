@@ -12,11 +12,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlickModule } from 'ngx-slick';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+// <<<<<<< devfroi
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+// =======
+// import {MatMenuModule} from '@angular/material/menu'
+// >>>>>>> master
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -27,7 +31,6 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialog-elements-example';
-
 
 @NgModule({
   imports: [
@@ -49,6 +52,7 @@ import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialo
     SlickModule
   ],
   entryComponents: [DialogElementsExample, DialogElementsExampleDialog],
+
   declarations: [
     AppComponent,
     HelloComponent,
@@ -66,22 +70,7 @@ import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialo
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ]
-  // =======
-  // import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-  // import { LoginComponent } from './login/login.component';
 
-  // @NgModule({
-  //   imports: [BrowserModule, FormsModule, HttpClientModule],
-  //   declarations: [
-  //     AppComponent,
-  //     HelloComponent,
-  //     MovieSearchComponent,
-  //     MovieDashboardComponent,
-  //     FavoriteListComponent,
-  //     LoginComponent
-  //   ],
-  //   bootstrap: [AppComponent]
-  // >>>>>>> master
 })
 export class AppModule {}
 platformBrowserDynamic().bootstrapModule(AppModule)
