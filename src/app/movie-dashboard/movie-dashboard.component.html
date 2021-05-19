@@ -1,8 +1,10 @@
 <mat-toolbar class="toolbar">
-  <div>
-    <span>ChillFlix </span>
+   <div>
+    <h1>ChillFlix </h1>
   </div>
   <span class="flexExpand"></span>
+  <!-- <dialog-elements-example>Loading</dialog-elements-example> -->
+
 
   <div>
     <button mat-button class="menu" [matMenuTriggerFor]="menu">
@@ -18,6 +20,8 @@
 <div class="body-content">
   <!-- <app-movie-search></app-movie-search> -->
   <!-- <button type="button" class="btn" (click)="logout()">Logout</button> -->
+ 
+
   <mat-tab-group mat-stretch-tabs mat-align-tabs="center" class="tab-container">
     <mat-tab label="Home">
 
@@ -29,7 +33,13 @@
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of actionList" class="slide">
             <div class="inner-slide">
+              <div class="container">
+
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+                <dialog-elements-example class="btn">Loading</dialog-elements-example>
+
+              </div>
+
               <div class="movie-title">
                 <span>{{movie.title}}</span>
 
@@ -46,7 +56,13 @@
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of adventureList" class="slide">
             <div class="inner-slide">
+              <div class="container">
+
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <dialog-elements-example class="btn">Loading</dialog-elements-example>
+
+              </div>
+
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>
@@ -62,7 +78,15 @@
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of comedyList" class="slide">
             <div class="inner-slide">
+              
+              <div class="container">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <!-- THIS IS THE COMPONENT FOR DIALOG -->
+
+              <dialog-elements-example class="btn">Loading</dialog-elements-example>
+
+              </div>
+
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>
@@ -78,7 +102,13 @@
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of horrorList" class="slide">
             <div class="inner-slide">
+              <div class="container">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
+              <!-- THIS IS THE COMPONENT FOR DIALOG -->
+              <dialog-elements-example class="btn">Loading</dialog-elements-example>
+
+              </div>
+
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>

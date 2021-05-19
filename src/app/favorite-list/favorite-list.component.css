@@ -5,3 +5,15 @@
   align-items: top;
   font-size: 14px;
 }
+.favorite-results {
+  height: 100vh;
+}
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  position: absolute;
+  right:0;
+  bottom:0;
+}
+
