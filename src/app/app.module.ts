@@ -10,19 +10,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlickModule } from 'ngx-slick';
-
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatMenuModule} from '@angular/material/menu'
-import {MatDialogModule} from '@angular/material/dialog';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -33,8 +29,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
-// import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-carousel.component';
-import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialog-elements-example';
+import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-carousel.component';
 
 @NgModule({
   imports: [
@@ -49,7 +44,6 @@ import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatGridListModule,
     MatToolbarModule,
     MatMenuModule,
     MatTooltipModule,
@@ -59,8 +53,6 @@ import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialo
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  entryComponents: [DialogElementsExample, DialogElementsExampleDialog],
-
   declarations: [
     AppComponent,
     HelloComponent,
@@ -72,21 +64,8 @@ import {DialogElementsExample, DialogElementsExampleDialog} from './dialog/dialo
     FavoriteListComponent,
     RegisterComponent,
   ],
-  bootstrap: [AppComponent, DialogElementsExample],
-  providers: [FirebaseService, { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
+  bootstrap: [AppComponent],
+  providers: [FirebaseService],
   entryComponents: [LoginComponent, LoginDialog]
-    DialogElementsExample,
-    DialogElementsExampleDialog,
-   
-    RegisterComponent
-  ],
-
-//   bootstrap: [AppComponent,DialogElementsExample],
-//   providers: [
-//     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-//   ]
-
 })
 export class AppModule {}
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));

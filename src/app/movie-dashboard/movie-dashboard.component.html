@@ -3,8 +3,6 @@
     <span>ChillFlix</span>
   </div>
   <span class="flexExpand"></span>
-  <!-- <dialog-elements-example>Loading</dialog-elements-example> -->
-
 
   <button mat-button class="menu" [matMenuTriggerFor]="menu">
       <mat-icon>person</mat-icon>
@@ -23,15 +21,8 @@
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of actionList" class="slide">
-            <!-- <div (click)="firebaseService.addFavorite(movie)" class="inner-slide" matTooltip="{{movie.overview}}"> -->
-            <div class="inner-slide">
-              <div class="container">
-
+            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide" matTooltip="{{movie.overview}}">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-                <dialog-elements-example class="btn">Loading</dialog-elements-example>
-
-              </div>
-
               <div class="movie-title">
                 <span>{{movie.title}}</span>
               </div>
@@ -46,17 +37,9 @@
         </div>
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
-          <!-- <div ngxSlickItem *ngFor="let movie of romanceList" class="slide">
-            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide"> -->
-          <div ngxSlickItem *ngFor="let movie of adventureList" class="slide">
-            <div class="inner-slide">
-              <div class="container">
-
+          <div ngxSlickItem *ngFor="let movie of romanceList" class="slide">
+            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-              <dialog-elements-example class="btn">Loading</dialog-elements-example>
-
-              </div>
-
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>
@@ -72,17 +55,8 @@
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of comedyList" class="slide">
-            <!-- <div (click)="firebaseService.addFavorite(movie)" class="inner-slide"> -->
-            <div class="inner-slide">
-              
-              <div class="container">
+            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-              <!-- THIS IS THE COMPONENT FOR DIALOG -->
-
-              <dialog-elements-example class="btn">Loading</dialog-elements-example>
-
-              </div>
-
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>
@@ -98,15 +72,8 @@
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
           (afterChange)="afterChange($event)">
           <div ngxSlickItem *ngFor="let movie of horrorList" class="slide">
-            <!-- <div (click)="firebaseService.addFavorite(movie)" class="inner-slide"> -->
-            <div class="inner-slide">
-              <div class="container">
+            <div (click)="firebaseService.addFavorite(movie)" class="inner-slide">
               <img class="thumbnail" src="{{'https://image.tmdb.org/t/p/original' + movie.poster_path}}">
-              <!-- THIS IS THE COMPONENT FOR DIALOG -->
-              <dialog-elements-example class="btn">Loading</dialog-elements-example>
-
-              </div>
-
               <div class="movie-title">
                 <span >{{movie.title}}</span>
               </div>
