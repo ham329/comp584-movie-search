@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-movie-search',
@@ -8,22 +7,18 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent {
+  results: any = [];
 
   constructor(private _httpClient: HttpClient) {}
 
-  results: any = [];
-  poster:any=[];
   getMovies(title) {
-    this._httpClient.get("https://www.omdbapi.com/?apikey=fb5a864e&s=" + title)
+    this._httpClient
+      .get('https://www.omdbapi.com/?apikey=fb5a864e&s=' + title)
       .subscribe((data: any) => {
         this.results = data.Search;
         console.log(this.results);
-      })
-  }
- 
-
-  ngOnInit() {
-    
+      });
   }
 
+  ngOnInit() {}
 }

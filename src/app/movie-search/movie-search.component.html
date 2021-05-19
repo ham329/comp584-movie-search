@@ -1,21 +1,21 @@
-<div class="topnav">
-  <input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
-</div>
-<div class="movie-results">
-  <h3>results found({{results.length}})</h3>
+<div class="body-content">
+  <mat-form-field class="search-field" appearance="outline">
+    <mat-label>Search Title</mat-label>
+    <input matInput type="text" [(ngModel)]="value" (keyup)="getMovies($event.target.value)">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 
-  <mat-list class="resultlist" role="list">
-
-    <li *ngFor="let results of results">
-
-      <h1>{{results.Title}}</h1>
-
-      <p> Release Year: {{results.Year}}</p> <br/>
-      <!-- {{results.Type}} <br/>  -->
-      <img src="{{results.Poster}}">
-
-    </li>
-
-  </mat-list>
-
+  <div class="movie-results">
+    <!-- <h3>results found({{results.length}})</h3> -->
+    <mat-list class="resultlist" role="list">
+      <li *ngFor="let results of results">
+        <h1>{{results.Title}}</h1>
+        <p> Release Year: {{results.Year}}</p> <br/>
+        <!-- {{results.Type}} <br/>  -->
+        <img src="{{results.Poster}}">
+      </li>
+    </mat-list>
+  </div>
 </div>

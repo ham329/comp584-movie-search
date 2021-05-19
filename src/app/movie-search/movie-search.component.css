@@ -1,18 +1,10 @@
-.resultlist {
-  columns: 75px 3;
+.body-content {
+  margin: 30px;
 }
-h1 {
-  font-style: italic;
-}
-.topnav {
-  overflow: hidden;
-}
-.topnav input[type='text'] {
-  width: 100%;
-  padding: 6px;
-  border: solid;
-  border-width: 8px;
-  font-size: 20px;
+
+.search-field {
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-results {
