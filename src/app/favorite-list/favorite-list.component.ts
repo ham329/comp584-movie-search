@@ -18,7 +18,7 @@ export class FavoriteListComponent {
   ) {}
 
   openDialog(movie): void {
-    let dialogRef = this.dialog.open(FavoriteListComponent, {
+    let dialogRef = this.dialog.open(FavoritesDialog, {
       data: { movie: movie }
     });
 
@@ -33,13 +33,12 @@ export class FavoriteListComponent {
   templateUrl: 'favorites-dialog.html'
 })
 export class FavoritesDialog {
-
   constructor(
     public dialogRef: MatDialogRef<FavoritesDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private firebaseService: FirebaseService
   ) {}
-  
+
   deleteFavorite(data) {
     this.firebaseService.deleteFavorite(data);
   }
@@ -48,4 +47,3 @@ export class FavoritesDialog {
     this.dialogRef.close();
   }
 }
-

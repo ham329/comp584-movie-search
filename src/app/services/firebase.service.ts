@@ -83,9 +83,9 @@ export class FirebaseService {
     poster_path: string;
   }) {
     var index = this.favorites.findIndex(item => {
-      return item === movie;
+      return item.title == movie.title;
     });
-    const eventToRemove = this.favorites.splice(index, 1);
+    this.favorites.splice(index, 1);
     let filteredFavorites = this.favorites.filter(x => x != movie);
     this.db
       .collection('Users')
