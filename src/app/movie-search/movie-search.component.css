@@ -1,9 +1,19 @@
 .body-content {
+  margin: 30px;
+  /* height: 80vh; */
+  text-align: center;
+}
+
+.search-field {
   display: flex;
+  flex-direction: column;
+}
+
+  /* display: flex;
   flex-direction: column;
   height: 90vh;
   
-}
+} */
 
 button {
   margin: 0 10px;
@@ -38,6 +48,9 @@ button {
   height: 225px;
 }
 
+/* .loadMore {
+  margin: 30px 0;
+} */
 .movie-title {
   margin-top: 10px;
   font-weight: 600;
