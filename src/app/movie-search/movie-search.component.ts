@@ -33,6 +33,11 @@ export class MovieSearchComponent {
       }
     });
   }
+ 
+ slideConfig = { slidesToShow: 5, slidesToScroll: 1, dots: false };
+  afterChange(e) {
+    console.log('afterChange');
+  }
 
   fetch(title) {
     return this._httpClient.get(
