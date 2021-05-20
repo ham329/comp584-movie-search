@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-movie-search',
   templateUrl: './movie-search.component.html',
   styleUrls: ['./movie-search.component.css']
-})
+}) 
 export class MovieSearchComponent {
   results: any = [];
   page: number;
