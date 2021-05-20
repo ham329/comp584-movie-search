@@ -12,11 +12,14 @@ export class MovieSearchComponent implements OnInit {
 
   results: any = [];
   poster:any=[];
+  show=false;
   getMovies(title) {
     this._httpClient.get("https://www.omdbapi.com/?apikey=fb5a864e&s=" + title)
       .subscribe((data: any) => {
         this.results = data.Search;
+        this.show=true;
         console.log(this.results);
+
       })
   }
  
