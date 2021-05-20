@@ -1,4 +1,22 @@
 <div class="body-content">
-  <h1>Favorite List</h1>
+  <h1>Favorites List</h1>
   <p>Keep track of your favorite shows or movies!</p>
+  <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
+    <mat-grid-tile *ngFor="let result of firebaseService.favorites">
+      <div class="inner-slide">
+        <img
+        class="thumbnail"
+        src="{{'https://image.tmdb.org/t/p/original' + result.poster_path}}"
+      />
+        <div class="movie-title">
+          <span>{{result.title}}</span>
+        </div>
+        <div class="plus-container">
+          <button mat-mini-fab color="primary" class="btn" (click)="openDialog()" aria-label="Example icon button with a heart icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

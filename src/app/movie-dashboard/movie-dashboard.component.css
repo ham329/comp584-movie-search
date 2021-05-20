@@ -25,31 +25,37 @@ button {
 }
 
 .inner-slide {
-  width: 160px;
   flex-direction: column;
   display: flex;
+  align-items: center;
 }
 
 .thumbnail {
+  width: 160px;
   border-radius: 5px;
-  width: auto;
   height: 225px;
 }
 
 .movie-title {
+  width: 160px;
   margin-top: 10px;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.toolbar{
- background-color: rgb(40, 40, 116);
- 
+.toolbar {
+  background-color: rgb(40, 40, 116);
 }
-.menu{
+.menu {
   align-items: left;
 }
 .flexExpand {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.plus-container {
+  position: absolute;
+  top: 180px;
+  margin-left: 110px;
 }

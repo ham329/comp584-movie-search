@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -6,11 +11,41 @@ import { FirebaseService } from '../services/firebase.service';
   templateUrl: './favorite-list.component.html',
   styleUrls: ['./favorite-list.component.css']
 })
-export class FavoriteListComponent implements OnInit {
-  constructor(private firebaseService: FirebaseService) {}
+export class FavoriteListComponent {
+  constructor(
+    private firebaseService: FirebaseService,
+    public dialog: MatDialog
+  ) {}
 
-  ngOnInit() {
-    this.firebaseService
-      .getFavorites()
+  openDialog(movie): void {
+    let dialogRef = this.dialog.open(FavoriteListComponent, {
+      data: { movie: movie }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
+
+@Component({
+  selector: 'favorites-dialog',
+  templateUrl: 'favorites-dialog.html'
+})
+export class FavoritesDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<FavoritesDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private firebaseService: FirebaseService
+  ) {}
+  
+  deleteFavorite(data) {
+    this.firebaseService.deleteFavorite(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+

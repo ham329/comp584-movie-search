@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -31,8 +36,23 @@ export class MovieDashboardComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    public dialog: MatDialog
   ) {}
+
+  openDialog(movie: {
+    title: string;
+    overview: string;
+    poster_path: string;
+  }): void {
+    let dialogRef = this.dialog.open(DashboardDialog, {
+      data: { movie: movie }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   filterList(list: any) {
     return list.filter(x => {
@@ -60,10 +80,10 @@ export class MovieDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getFavorites()
-    // this.getGenre(28).subscribe((data: any) => {
-    //   this.actionList = this.filterList(data.results);
-    // });
+    this.getFavorites();
+    this.getGenre(28).subscribe((data: any) => {
+      this.actionList = this.filterList(data.results);
+    });
     // this.getGenre(10749).subscribe((data: any) => {
     //   this.romanceList = this.filterList(data.results);
     // });
@@ -73,6 +93,38 @@ export class MovieDashboardComponent implements OnInit {
     // this.getGenre(27).subscribe((data: any) => {
     //   this.horrorList = this.filterList(data.results);
     // });
+  }
+}
+
+@Component({
+  selector: 'dashboard-dialog',
+  templateUrl: 'dashboard-dialog.html'
+})
+export class DashboardDialog {
+  switchIcon = false;
+
+  constructor(
+    public dialogRef: MatDialogRef<DashboardDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private firebaseService: FirebaseService
+  ) {}
+
+  addFavorite(data: { title: string; overview: string; poster_path: string }) {
+    this.firebaseService.addFavorite(data);
+    this.switchIcon = !this.switchIcon;
+  }
+
+  deleteFavorite(data: {
+    title: string;
+    overview: string;
+    poster_path: string;
+  }) {
+    this.firebaseService.deleteFavorite(data);
+    this.switchIcon = !this.switchIcon;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }
 // Movie genres and ids from themoviedb api

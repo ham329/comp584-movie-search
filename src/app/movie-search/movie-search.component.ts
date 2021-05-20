@@ -5,6 +5,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-movie-search',
@@ -34,7 +35,7 @@ export class MovieSearchComponent {
 
   openDialog(movie): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      data: { title: movie.title, overview: movie.overview }
+      data: { movie: movie }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -63,7 +64,7 @@ export class MovieSearchComponent {
     this.page = 1;
     this.fetch(title).subscribe((data: any) => {
       this.results = this.filterList(data.results);
-      console.log(this.results);
+      // console.log(this.results);
     });
     this.title = title;
     this.page++;
@@ -73,7 +74,7 @@ export class MovieSearchComponent {
     console.log(this.page);
     this.fetch(this.title).subscribe((data: any) => {
       this.results = [...this.results, ...this.filterList(data.results)];
-      console.log(data.results);
+      // console.log(data.results);
     });
     this.page++;
   }
@@ -84,10 +85,23 @@ export class MovieSearchComponent {
   templateUrl: 'dialog-overview-example-dialog.html'
 })
 export class DialogOverviewExampleDialog {
+  switchIcon = false;
+
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private firebaseService: FirebaseService
   ) {}
+
+  addFavorite(data) {
+    this.firebaseService.addFavorite(data);
+    this.switchIcon = !this.switchIcon;
+  }
+  
+  deleteFavorite(data) {
+    this.firebaseService.deleteFavorite(data);
+    this.switchIcon = !this.switchIcon;
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -1,7 +1,28 @@
 .body-content {
-  height: 100vh;
+  margin: 30px;
+}
+
+.inner-slide {
+  width: 160px;
+  flex-direction: column;
   display: flex;
-  justify-content: left;
-  align-items: top;
-  font-size: 14px;
+}
+
+.thumbnail {
+  border-radius: 5px;
+  width: auto;
+  height: 225px;
+}
+
+.movie-title {
+  margin-top: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plus-container {
+  margin-top: -75px;
+  margin-left: 110px;
 }

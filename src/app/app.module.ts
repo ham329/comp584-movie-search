@@ -21,16 +21,21 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import {
   MovieSearchComponent,
   DialogOverviewExampleDialog
 } from './movie-search/movie-search.component';
-import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
+import {
+  MovieDashboardComponent,
+  DashboardDialog
+} from './movie-dashboard/movie-dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
-import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import {
+  FavoriteListComponent,
+  FavoritesDialog
+} from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
 
 @NgModule({
@@ -57,14 +62,15 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
   ],
   declarations: [
     AppComponent,
-    HelloComponent,
     MovieSearchComponent,
     DialogOverviewExampleDialog,
     MovieDashboardComponent,
+    DashboardDialog,
     AuthComponent,
     LoginComponent,
     LoginDialog,
     FavoriteListComponent,
+    FavoritesDialog,
     RegisterComponent
   ],
   bootstrap: [AppComponent],
@@ -73,7 +79,11 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     LoginComponent,
     LoginDialog,
     MovieSearchComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    MovieDashboardComponent,
+    DashboardDialog,
+    FavoriteListComponent,
+    FavoritesDialog
   ]
 })
 export class AppModule {}

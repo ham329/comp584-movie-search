@@ -67,7 +67,7 @@ export class FirebaseService {
 
   addFavorite(movie: { title: string; overview: string; poster_path: string }) {
     if (this.favorites.length == undefined) this.favorites = [movie];
-    else {
+    else if (!this.favorites.includes(movie)) {
       this.favorites.push(movie);
     }
     this.db

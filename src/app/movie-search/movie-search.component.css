@@ -1,6 +1,5 @@
 .body-content {
   margin: 30px;
-  /* height: 80vh; */
   text-align: center;
 }
 
@@ -9,13 +8,9 @@
   flex-direction: column;
 }
 
-button {
+/* button {
   margin: 0 10px;
-}
-
-.genre-container {
-  margin: 30px 0;
-}
+} */
 
 .genre-title {
   margin: 0 20px;
@@ -42,10 +37,6 @@ button {
   height: 225px;
 }
 
-.loadMore {
-  margin: 30px 0;
-}
-
 .movie-title {
   margin-top: 10px;
   font-weight: 600;
@@ -53,17 +44,12 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.toolbar {
-  background-color: rgb(40, 40, 116);
-}
-.menu {
-  align-items: left;
-}
-.flexExpand {
-  flex: 1 1 auto;
-}
 
 .plus-container {
-  margin-top: -80px;
-  margin-left: 100px;
+  margin-top: -75px;
+  margin-left: 105px;
+}
+
+.loadMore {
+  margin: 30px 0;
 }
