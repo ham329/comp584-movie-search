@@ -37,6 +37,7 @@ import {
   FavoritesDialog
 } from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -74,7 +75,7 @@ import { FirebaseService, LoginDialog } from './services/firebase.service';
     RegisterComponent
   ],
   bootstrap: [AppComponent],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthGuardService],
   entryComponents: [
     LoginComponent,
     LoginDialog,

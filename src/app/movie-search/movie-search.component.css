@@ -8,16 +8,8 @@
   flex-direction: column;
 }
 
-/* button {
-  margin: 0 10px;
-} */
-
 .genre-title {
   margin: 0 20px;
-}
-
-.carousel {
-  margin: 0 40px;
 }
 
 .slide {

@@ -20,6 +20,10 @@ export class FirebaseService {
     this.dialog.open(LoginDialog);
   }
 
+  isLoggedIn() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
   async register(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
@@ -27,6 +31,7 @@ export class FirebaseService {
         this._router.navigate(['dashboard']);
         console.log(res);
         this.uid = res.user.uid;
+        localStorage.setItem('user', JSON.stringify(res.user.uid));
       })
       .catch(err => {
         this.openDialog();
@@ -40,6 +45,7 @@ export class FirebaseService {
       .then(res => {
         this._router.navigate(['dashboard']);
         this.uid = res.user.uid;
+        localStorage.setItem('user', JSON.stringify(res.user.uid));
       })
       .catch(err => {
         this.openDialog();
@@ -51,13 +57,14 @@ export class FirebaseService {
     this.firebaseAuth.signOut();
     this._router.navigate(['']);
     this.uid = '';
+    localStorage.removeItem('user');
     console.log('Signed out');
   }
 
   getFavorites() {
     this.db
       .collection('Users')
-      .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
+      .doc(this.uid)
       .get()
       .subscribe(res => {
         this.favorites = res.data().favorites;
@@ -72,7 +79,7 @@ export class FirebaseService {
     }
     this.db
       .collection('Users')
-      .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
+      .doc(this.uid)
       .set({ favorites: this.favorites });
     console.log(this.favorites);
   }
@@ -89,7 +96,7 @@ export class FirebaseService {
     let filteredFavorites = this.favorites.filter(x => x != movie);
     this.db
       .collection('Users')
-      .doc('0fWs1HjjBDOnZcHY65771xPopNT2')
+      .doc(this.uid)
       .set({ favorites: filteredFavorites });
     console.log(this.favorites);
   }
