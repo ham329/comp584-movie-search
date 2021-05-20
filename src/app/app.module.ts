@@ -15,21 +15,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { MovieSearchComponent } from './movie-search/movie-search.component';
+import {
+  MovieSearchComponent,
+  DialogOverviewExampleDialog
+} from './movie-search/movie-search.component';
 import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FirebaseService, LoginDialog } from './services/firebase.service';
-import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-carousel.component';
 
 @NgModule({
   imports: [
@@ -57,15 +59,21 @@ import { MovieCarouselComponent } from './movie-dashboard/movie-carousel/movie-c
     AppComponent,
     HelloComponent,
     MovieSearchComponent,
+    DialogOverviewExampleDialog,
     MovieDashboardComponent,
     AuthComponent,
     LoginComponent,
     LoginDialog,
     FavoriteListComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent],
   providers: [FirebaseService],
-  entryComponents: [LoginComponent, LoginDialog]
+  entryComponents: [
+    LoginComponent,
+    LoginDialog,
+    MovieSearchComponent,
+    DialogOverviewExampleDialog
+  ]
 })
 export class AppModule {}

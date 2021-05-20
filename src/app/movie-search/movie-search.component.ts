@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-movie-search',
@@ -7,9 +12,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent {
-  results: any = [];
-  page: number;
-  title: string = '';
   fieldsToDelete = [
     'adult',
     'backdrop_path',
@@ -23,34 +25,21 @@ export class MovieSearchComponent {
     'genre_ids',
     'id'
   ];
-  constructor(private _httpClient: HttpClient) {}
-
-
+  page: number;
   results: any = [];
-  poster:any=[];
-  show=false;
-  getMovies(title) {
-    this._httpClient.get("https://www.omdbapi.com/?apikey=fb5a864e&s=" + title)
-      .subscribe((data: any) => {
-        this.results = data.Search;
-        this.show=true;
-        console.log(this.results);
+  show = false;
+  slideConfig = { slidesToShow: 5, slidesToScroll: 1, dots: false };
+  title: string = '';
+  constructor(private _httpClient: HttpClient, public dialog: MatDialog) {}
 
-      })
-
-  filterList(list: any) {
-    return list.filter(x => {
-      if (x.poster_path != null) {
-        this.fieldsToDelete.forEach(field => delete x[field]);
-        return x;
-      }
+  openDialog(movie): void {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      data: { title: movie.title, overview: movie.overview }
     });
 
-  }
- 
- slideConfig = { slidesToShow: 5, slidesToScroll: 1, dots: false };
-  afterChange(e) {
-    console.log('afterChange');
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   fetch(title) {
@@ -59,6 +48,15 @@ export class MovieSearchComponent {
         this.page
       }&include_adult=false`
     );
+  }
+
+  filterList(list: any) {
+    return list.filter(x => {
+      if (x.poster_path != null) {
+        this.fieldsToDelete.forEach(field => delete x[field]);
+        return x;
+      }
+    });
   }
 
   getMovies(title) {
@@ -78,5 +76,20 @@ export class MovieSearchComponent {
       console.log(data.results);
     });
     this.page++;
+  }
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html'
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

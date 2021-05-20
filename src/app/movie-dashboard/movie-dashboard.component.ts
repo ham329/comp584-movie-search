@@ -60,10 +60,10 @@ export class MovieDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFavorites()
-    this.getGenre(28).subscribe((data: any) => {
-      this.actionList = this.filterList(data.results);
-    });
+    // this.getFavorites()
+    // this.getGenre(28).subscribe((data: any) => {
+    //   this.actionList = this.filterList(data.results);
+    // });
     // this.getGenre(10749).subscribe((data: any) => {
     //   this.romanceList = this.filterList(data.results);
     // });

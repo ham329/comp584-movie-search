@@ -1,46 +1,16 @@
 <div class="body-content">
-  <!-- <mat-form-field class="search-field" appearance="outline">
+  <mat-form-field class="search-field" appearance="outline">
     <mat-label>Search Title</mat-label>
     <input matInput type="text" [(ngModel)]="value" (keyup.enter)="getMovies($event.target.value)">
     <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field> -->
-
-<div class="body-content" >
-<mat-form-field class="search-field" appearance="outline">
-  <mat-label>Search Title</mat-label>
-  <input matInput type="text" [(ngModel)]="value" (keyup)="getMovies($event.target.value)">
-  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
     <mat-icon>close</mat-icon>
   </button>
-</mat-form-field>
+  </mat-form-field>
 
+  <div *ngIf="show" class="genre-title">
+    <h4>Searching for " {{value}} "</h4>
+  </div>
 
-<div *ngIf="show" class="genre-title">
-  <h4>Searching for " {{value}} "</h4>
-</div>
-<div>
- 
-      <div class="genre-container">
-        
-        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
-          (afterChange)="afterChange($event)">
-          <div ngxSlickItem *ngFor="let results of results" class="slide">
-            <div class="inner-slide">
-              <img src="{{results.Poster}}">
-              <div class="movie-title">
-                <span>{{results.Title}} </span>
-
-              </div>
-            </div>
-          </div>
-        </ngx-slick>
-      </div>
-      
-</div>
-
-  <!-- <div class="movie-results"> -->
   <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
     <mat-grid-tile *ngFor="let result of results">
       <div class="inner-slide">
@@ -51,31 +21,13 @@
         <div class="movie-title">
           <span>{{result.title}}</span>
         </div>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <button *ngIf="results.length != 0" class="loadMore" mat-flat-button color="primary" (click)="loadMore()">Load More</button>
-  <!-- <mat-grid-list cols="5" rowHeight="2:3" [gutterSize]="'40px'">
-    <mat-grid-tile *ngFor="let result of results">
-      <div class="inner-slide">
-        <img
-        class="thumbnail"
-        src="{{result.Poster}}"
-      />
-        <div class="movie-title">
-          <span>{{result.Title}}</span>
+        <div class="plus-container">
+          <button mat-mini-fab color="primary" class="btn" (click)="openDialog(result)" color="white" aria-label="Example icon button with a heart icon">
+          <mat-icon>add</mat-icon>
+        </button>
         </div>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-   -->
-  <!-- <h3>results found({{results.length}})</h3> -->
-  <!-- <mat-list class="resultlist" role="list">
-      <li *ngFor="let results of results">
-        <h1>{{results.Title}}</h1>
-        <p> Release Year: {{results.Year}}</p> <br/>
-        <img src="{{results.Poster}}">
-      </li>
-    </mat-list> -->
-  <!-- </div> -->
+  <button *ngIf="results.length != 0" class="loadMore" mat-flat-button color="primary" (click)="loadMore()">Load More</button>
 </div>
