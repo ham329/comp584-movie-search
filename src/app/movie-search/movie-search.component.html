@@ -1,21 +1,35 @@
-<div class="topnav">
-  <input type="text" (keyup)="getMovies($event.target.value)" placeholder="Search Title">
+
+<div class="body-content" >
+<mat-form-field class="search-field" appearance="outline">
+  <mat-label>Search Title</mat-label>
+  <input matInput type="text" [(ngModel)]="value" (keyup)="getMovies($event.target.value)">
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+
+<div class="genre-title">
+  <h4>Searching for " {{value}} "</h4>
 </div>
-<div class="movie-results">
-  <h3>results found({{results.length}})</h3>
+<div>
+ 
+      <div class="genre-container">
+        
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig"
+          (afterChange)="afterChange($event)">
+          <div ngxSlickItem *ngFor="let results of results" class="slide">
+            <div class="inner-slide">
+              <img src="{{results.Poster}}">
+              <div class="movie-title">
+                <span>{{results.Title}} </span>
 
-  <mat-list class="resultlist" role="list">
-
-    <li *ngFor="let results of results">
-
-      <h1>{{results.Title}}</h1>
-
-      <p> Release Year: {{results.Year}}</p> <br/>
-      <!-- {{results.Type}} <br/>  -->
-      <img src="{{results.Poster}}">
-
-    </li>
-
-  </mat-list>
+              </div>
+            </div>
+          </div>
+        </ngx-slick>
+      </div>
+      
+</div>
 
 </div>
