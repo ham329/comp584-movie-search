@@ -45,6 +45,6 @@ export class LoginComponent implements OnInit {
 
   async login() {
     this.firebaseService.login(this.lf.email.value, this.lf.password.value);
-    this.loginForm.reset();
+    // this.loginForm.reset();
   }
 }

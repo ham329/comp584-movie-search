@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      password: ['', Validators.required]
+      // confirmPassword: ['', Validators.required]
     });
   }
 
@@ -46,6 +46,6 @@ export class RegisterComponent implements OnInit {
 
   async register() {
     this.firebaseService.register(this.rf.email.value, this.rf.password.value);
-    this.registerForm.reset();
+    // this.registerForm.reset();
   }
 }
