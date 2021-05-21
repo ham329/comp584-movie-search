@@ -67,7 +67,8 @@ export class FirebaseService {
       .doc(this.uid)
       .get()
       .subscribe(res => {
-        this.favorites = res.data().favorites;
+        if (res.data().favorites != undefined)
+          this.favorites = res.data().favorites;
         console.log(this.favorites);
       });
   }

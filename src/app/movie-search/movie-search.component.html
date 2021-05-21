@@ -1,15 +1,15 @@
 <div class="body-content">
   <mat-form-field class="search-field" appearance="outline">
     <mat-label>Search Title</mat-label>
-    <input matInput type="text" [(ngModel)]="value" (keyup.enter)="getMovies($event.target.value)">
+    <input matInput type="text" [(ngModel)]="value" (keyup.enter)="getMovies($event.target.value)" autocomplete="off">
     <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
     <mat-icon>close</mat-icon>
   </button>
   </mat-form-field>
 
-  <div *ngIf="show" class="genre-title">
-    <h4>Searching for " {{value}} "</h4>
-  </div>
+  <!-- <div *ngIf="show" class="genre-title">
+    <h4>Searching for "{{value}}"</h4>
+  </div> -->
 
   <mat-grid-list cols="6" rowHeight="2:3" gutterSize="40px">
     <mat-grid-tile *ngFor="let result of results">
