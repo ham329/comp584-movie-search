@@ -49,6 +49,13 @@ export class MovieSearchComponent {
         this.page
       }&include_adult=false`
     );
+    // OMDB api link used previously before switching to themovidb api
+    //  this._httpClient.get("https://www.omdbapi.com/?apikey=fb5a864e&s=" + title)
+    //   .subscribe((data: any) => {
+    //     this.results = data.Search;
+    //     console.log(this.results);
+
+    //   })
   }
 
   filterList(list: any) {
@@ -97,7 +104,7 @@ export class DialogOverviewExampleDialog {
     this.firebaseService.addFavorite(data);
     this.switchIcon = !this.switchIcon;
   }
-  
+
   deleteFavorite(data) {
     this.firebaseService.deleteFavorite(data);
     this.switchIcon = !this.switchIcon;
